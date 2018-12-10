@@ -2,11 +2,6 @@ package cartesian
 
 type Iterator func() (v interface{}, hasNext bool)
 
-// One returns an Iterator with one value
-func One(value interface{}) Iterator {
-	return func() (interface{}, bool) { return value, false }
-}
-
 // From returns an Iterator that iterates throught "values"
 // "values" length should be at least one.
 func From(values ...interface{}) Iterator {

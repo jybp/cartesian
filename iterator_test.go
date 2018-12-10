@@ -29,14 +29,7 @@ func TestBool(t *testing.T) {
 	assertIterator(t, expected, cartesian.Bool())
 }
 
-func TestOne(t *testing.T) {
-	expected := []interface{}{
-		"a",
-	}
-	assertIterator(t, expected, cartesian.One("a"))
-}
-
-func TestAll(t *testing.T) {
+func TestFrom(t *testing.T) {
 	expected := []interface{}{
 		"a", 1,
 	}

@@ -35,15 +35,16 @@ func TestForAll(t *testing.T) {
 
 	expected := [][]bool{
 		{true, true},
+		{false, false},
 		{true, false},
 		{false, true},
-		{false, false},
 	}
 
 	actual := [][]bool{}
 
-	err := cartesian.ForAll(func(a, b bool) {
+	err := cartesian.ForAll(func(a, b bool) bool {
 		actual = append(actual, []bool{a, b})
+		return true
 	}, cartesian.Bool(), cartesian.Bool())
 
 	if nil != err {

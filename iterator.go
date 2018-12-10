@@ -22,7 +22,7 @@ func All(all ...interface{}) Iterator {
 	}
 }
 
-// Bool implememts Iterator for bool
+// Bool returns an Iterator for bool
 func Bool() Iterator {
 	first := true
 	return func() (interface{}, bool) {

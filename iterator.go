@@ -3,20 +3,20 @@ package cartesian
 type Iterator func() (v interface{}, hasNext bool)
 
 // One returns an Iterator with one value
-func One(v interface{}) Iterator {
-	return func() (interface{}, bool) { return v, false }
+func One(value interface{}) Iterator {
+	return func() (interface{}, bool) { return value, false }
 }
 
-// All returns an Iterator that iterates throught "all"
-// "all" length should be at least one.
-func All(all ...interface{}) Iterator {
-	if len(all) == 0 {
+// From returns an Iterator that iterates throught "values"
+// "values" length should be at least one.
+func From(values ...interface{}) Iterator {
+	if len(values) == 0 {
 		return func() (interface{}, bool) { return nil, false }
 	}
 	idx := 0
 	return func() (interface{}, bool) {
-		v := all[idx]
-		last := idx == len(all)-1
+		v := values[idx]
+		last := idx == len(values)-1
 		idx++
 		return v, !last
 	}

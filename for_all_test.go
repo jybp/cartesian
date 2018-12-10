@@ -1,11 +1,29 @@
 package cartesian_test
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 
 	"github.com/jybp/cartesian"
 )
+
+func ExampleForAll() {
+	err := cartesian.ForAll(func(a bool, b int) {
+		// Do something with a and b
+		fmt.Println(a, b)
+	}, cartesian.Bool(), cartesian.From(1, 2))
+
+	if err != nil {
+		// Handle error
+	}
+
+	// Ordered Output:
+	// [true 1]
+	// [true 2]
+	// [false 1]
+	// [false 2]
+}
 
 func TestForAll(t *testing.T) {
 

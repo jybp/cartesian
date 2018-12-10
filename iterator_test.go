@@ -40,5 +40,5 @@ func TestAll(t *testing.T) {
 	expected := []interface{}{
 		"a", 1,
 	}
-	assertIterator(t, expected, cartesian.All("a", 1))
+	assertIterator(t, expected, cartesian.From("a", 1))
 }
